@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./global.css";
+import {useNavigate} from 'react-router-dom'
 
 const Register = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -14,6 +16,7 @@ const Register = () => {
   };
 
   const sendData = async (e) => {
+    e.preventDefault();
     const { name, email, password } = user;
     const head = {
       method: "POST",
@@ -26,6 +29,13 @@ const Register = () => {
     };
     const res = await fetch("/signup", head);
     await res.json();
+    if(res.status===200){
+      alert('user registered')
+      navigate('/login')
+    }
+    if(res.status===424){
+      alert('user exist')
+    }
   };
 
   return (
@@ -38,7 +48,7 @@ const Register = () => {
           <input
             type="text"
             class="form-control"
-            id="exampleInputEmail1"
+            id="exampleInputName1"
             aria-describedby="emailHelp"
             name="name"
             onChange={handleChange}

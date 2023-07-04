@@ -1,13 +1,14 @@
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react'
 import {NavLink} from 'react-router-dom'
+import {context} from '../App.js'
 
 const Navbar = () => {
-    const[logged, setLogged] = useState(false);
+    const {state, dispatch} = useContext(context);
 
     const Navlink =() => {
         return(
             <>
-            {logged ?
+            {state ?
             <>
             <ul>
                 <li><NavLink to='/profile'>Profile</NavLink></li>
