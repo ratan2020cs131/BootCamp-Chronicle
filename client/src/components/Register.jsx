@@ -81,7 +81,7 @@ const Register = () => {
         </div>
 
         <button type="submit" class="btn btn-primary" onClick={sendData}>
-          Submit
+          Register
         </button>
       </form>
     </div>

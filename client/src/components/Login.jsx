@@ -72,7 +72,7 @@ const Login = () => {
           />
         </div>
         <button type="submit" class="btn btn-primary" onClick={sendData}>
-          Submit
+          Login
         </button>
       </form>
     </div>
